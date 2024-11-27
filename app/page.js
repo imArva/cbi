@@ -2,100 +2,22 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="justify-center lg:w-[78%]">
+        <h1 className="text-center lg:p-5 text-[48px] font-[600] text-[#800B35]">Who are the Creative Branders?</h1>
+        <div className="flex justify-center gap-5 w-auto mb-3 lg:mb-0">
+          <Image src="/img/foto1.jpg" width={199} height={257} className="w-auto h-auto object-cover" alt=""/>
+          <Image src="/img/foto2.jpg" width={212} height={307} className="w-auto h-auto object-cover" alt=""/>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className="text-[#757575] lg:p-5">
+            <p>Creative Branding Indonesia was founded early 2005 by Kartini Umbas and Frans Nijnens as a company specialized in trading of specific ingredients, such as fragrances, flavours (essences) and raw materials for these ingredients.The company is the materialization of the founders’ passion for the flavour and fragrance industry after many years of expertise as professionals in the industry.Our knowledge of the business, nationally as well as internationally, supported by sound technological expertise, market understanding, an international network, the right commercial strategy and a reliable attitude, will provide the competitive advantage to our company. All of these aspects are presented to our customers for the sake of mutual benefits.</p>
+            <br/>
+            <p>We would be honored to be a partner to our valued customers, a partnership which is based on professionalism, cooperation and openness. Teamwork is the keyword, not only applied to our internal organization, but most importantly building a team with our customers. We officially opened our new facility in August 2016.</p>
+            <br/>
+            <p>You will find most information on our product categories on this website, but you can reach us for further information via <a href="mailto:info@creativebrandingindonesia.com" className="text-[#AF0F48] underline">info@creativebrandingindonesia.com</a></p>
+        </div>
+        {/* <!-- <div>
+            <img src="/public/IMG_20151107_0949261.jpg" className="bg-covers" alt="">
+        </div> --> */}
     </div>
   );
 }
