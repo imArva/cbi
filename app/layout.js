@@ -7,6 +7,7 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const raleway = Raleway({
   subsets:['latin']
@@ -19,6 +20,12 @@ const raleway = Raleway({
 
 export default function RootLayout({ children }) {
   const currentPath = usePathname();
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [currentPath]);
 
   return (
     <html lang="en">
@@ -44,65 +51,86 @@ export default function RootLayout({ children }) {
         {/* <!-- Jumbotron End --> */}
         
         {/* <!-- Links Start --> */}
-        <div className="w-full bg-[#AF0F48] hidden md:grid md:grid-cols-3 lg:flex px-20">
-            <div className="group">
-                <Link href="/">
-                    <div className={`p-[1.4rem] ${currentPath == "/" ? "bg-[#800B35]" : "hover:bg-[#800B35]" } `}>
-                        <div>
-                            <p className="text-white text-[17px]">Home</p>
+        <div className="w-full bg-[#AF0F48] hidden md:flex px-20"> {/* md:grid md:grid-cols-3 */}
+            <ul>
+                <li className="float-left">
+                    <div className="group">
+                        <Link href="/">
+                            <div className={`p-[1.4rem] ${currentPath == "/" ? "bg-[#800B35]" : "hover:bg-[#800B35]" } `}>
+                                <div>
+                                    <p className="text-white text-[17px]">Home</p>
+                                </div>
+                            </div>
+                        </Link>
+                        <div className="hidden group-hover:block bg-[#AF0F48] text-white list-none absolute mr-20 shadow-md">
+                            <ul>
+                                <Link href="/">
+                                    <li className={`py-[0.9rem] px-14 ${currentPath == "/" ? "bg-[#800B35]" : "hover:bg-[#800B35]" }`}>
+                                        <p>Home</p>
+                                    </li>
+                                </Link>
+                                <Link href="/who-are-we">
+                                    <li className={`py-[0.9rem] px-14 ${currentPath == "/who-are-we" ? "bg-[#800B35]" : "hover:bg-[#800B35]" }`}>
+                                        <p>Who are we?</p>
+                                    </li>
+                                </Link>
+                                <Link href="/siapa-kami">
+                                    <li className={`py-[0.9rem] px-14 ${currentPath == "/siapa-kami" ? "bg-[#800B35]" : "hover:bg-[#800B35]" }`}>
+                                        <p>Siapa kami</p>
+                                    </li>
+                                </Link>
+                            </ul>
                         </div>
                     </div>
-                </Link>
-                <div className="hidden group-hover:block bg-[#AF0F48] text-white list-none absolute mr-20 shadow-md">
-                    <ul>
-                        <Link href="/">
-                            <li className={`py-[0.9rem] px-14 ${currentPath == "/" ? "bg-[#800B35]" : "hover:bg-[#800B35]" }`}>
-                                <p>Home</p>
-                            </li>
-                        </Link>
-                        <Link href="/who-are-we">
-                            <li className={`py-[0.9rem] px-14 ${currentPath == "/who-are-we" ? "bg-[#800B35]" : "hover:bg-[#800B35]" }`}>
-                                <p>Who are we?</p>
-                            </li>
-                        </Link>
-                        <Link href="/siapa-kami">
-                            <li className={`py-[0.9rem] px-14 ${currentPath == "/siapa-kami" ? "bg-[#800B35]" : "hover:bg-[#800B35]" }`}>
-                                <p>Siapa kami</p>
-                            </li>
-                        </Link>
-                    </ul>
-                </div>
-            </div>
-            <Link className={`p-[1.4rem] ${currentPath == "/fragrances" ? "bg-[#800B35]" : "hover:bg-[#800B35]" }`} href="/fragrances">
-                <div>
-                    <p className="text-white text-[17px]">Fragrances</p>
-                </div>
-            </Link>
-            <Link className={`p-[1.4rem] ${currentPath == "/wewangian" ? "bg-[#800B35]" : "hover:bg-[#800B35]" }`} href="/wewangian">
-                <div>
-                    <p className="text-white text-[17px]">Wewangian</p>
-                </div>
-            </Link>
-            <Link className={`p-[1.4rem] ${currentPath == "/contact" ? "bg-[#800B35]" : "hover:bg-[#800B35]" }`} href="/contact">
-                <div>
-                    <p className="text-white text-[17px]">Contact/Kontakt</p>
-                </div>
-            </Link>
-            <Link className={`p-[1.4rem] ${currentPath == "/flavours" ? "bg-[#800B35]" : "hover:bg-[#800B35]" }`} href="/flavours">
-                <div>
-                    <p className="text-white text-[17px]">Perencah/Flavours</p>
-                </div>
-            </Link>
-            <Link className={`p-[1.4rem] ${currentPath == "/ingredients" ? "bg-[#800B35]" : "hover:bg-[#800B35]" }`} href="/ingredients">
-                <div>
-                    <p className="text-white text-[17px]">Ingredients</p>
-                </div>
-            </Link>
+                </li>
+                <li className="float-left">
+                    <Link href="/fragrances">
+                        <div className={`p-[1.4rem] ${currentPath == "/fragrances" ? "bg-[#800B35]" : "hover:bg-[#800B35]" }`}>
+                            <p className="text-white text-[17px]">Fragrances</p>
+                        </div>
+                    </Link>
+                </li>
+                <li className="float-left">
+                    <Link href="/wewangian">
+                        <div className={`p-[1.4rem] ${currentPath == "/wewangian" ? "bg-[#800B35]" : "hover:bg-[#800B35]" }`}>
+                            <p className="text-white text-[17px]">Wewangian</p>
+                        </div>
+                    </Link>
+                </li>
+                <li className="float-left">
+                    <Link href="/contact">
+                        <div className={`p-[1.4rem] ${currentPath == "/contact" ? "bg-[#800B35]" : "hover:bg-[#800B35]" }`}>
+                            <p className="text-white text-[17px]">Contact/Kontakt</p>
+                        </div>
+                    </Link>
+                </li>
+                <li className="float-left">
+                    <Link href="/flavours">
+                        <div className={`p-[1.4rem] ${currentPath == "/flavours" ? "bg-[#800B35]" : "hover:bg-[#800B35]" }`}>
+                            <p className="text-white text-[17px]">Perencah/Flavours</p>
+                        </div>
+                    </Link>
+                </li>
+                <li className="float-left">
+                    <Link href="/ingredients">
+                        <div className={`p-[1.4rem] ${currentPath == "/ingredients" ? "bg-[#800B35]" : "hover:bg-[#800B35]" }`}>
+                            <p className="text-white text-[17px]">Ingredients</p>
+                        </div>
+                    </Link>
+                </li>
+                <li className="float-left">
+                    <Link href="/tailored-service">
+                        <div className={`p-[1.4rem] ${currentPath == "/tailored-service" ? "bg-[#800B35]" : "hover:bg-[#800B35]" }`}>
+                            <p className="text-white text-[17px]">Tailored Service</p>
+                        </div>
+                    </Link>
+                </li>
+            </ul>
         </div>
         {/* ⬇ Mobile ⬇ */}
         <div className="w-full bg-[#AF0F48] block md:hidden">
-          <input type="checkbox" id="openNav" className="hidden peer"/>
-          <label htmlFor="openNav">
+          <input type="checkbox" id="openNav" className="hidden peer" checked={isMenuOpen}/>
+          <label htmlFor="openNav" onClick={() => {setIsMenuOpen(!isMenuOpen)}}>
             <div className="flex text-center w-full justify-center hover:cursor-pointer"> 
               <FontAwesomeIcon icon={faBars} className="text-white size-10" />
             </div>
@@ -150,6 +178,9 @@ export default function RootLayout({ children }) {
             </Link>
             <Link className="w-full" href="/ingredients">
                 <p className={`text-white text-[17px] p-5 ${currentPath == "/ingredients" ? "bg-[#800B35]" : "hover:bg-[#800B35]" }`}>Ingredients</p>
+            </Link>
+            <Link className="w-full" href="/tailored-service">
+                <p className={`text-white text-[17px] p-5 ${currentPath == "/tailored-service" ? "bg-[#800B35]" : "hover:bg-[#800B35]" }`}>Tailored Service</p>
             </Link>
           </div>
         </div>
